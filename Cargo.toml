@@ -1,0 +1,16 @@
+[package]
+name = "lette"
+version = "0.1.0"
+edition = "2021"
+description = "Email formatting & creation tool"
+license = "MIT"
+readme = "README.md"
+authors = ["Jacobtread <jacobtread@gmail.com>"]
+keywords = ["email"]
+repository = "https://github.com/jacobtread/lette"
+
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+nom = "7.1.3"
