@@ -1,0 +1,67 @@
+
+
+<!-- Styling group definitions -->
+<Groups>
+    .example {
+        background-color: #FFFFFF;
+    }
+
+    .test {
+
+    }
+</Groups>
+
+<!-- Global Styling definitions -->
+<Global>
+
+    Container {
+        background-color: #FFF;
+    }
+
+    Text {
+    }
+
+</Global>
+
+<!-- Specifying a Font will override all the element fonts -->
+<Font 
+    family="Roboto" 
+    fallback="Verdana" 
+    url="https://font.com/font.woff2" 
+    format="woff2" 
+    fontWeight="400"
+    fontStyle="normal"
+>
+
+<Preview>This is some text which will be displayed as the email preview text</Preview>
+
+
+<Container>
+    <Heading type="h1">This is a large heading</Heading>
+    <Text 
+        group="example test" 
+        style="background-color: #FFF; color: #222;">
+        This is some example text {VARIABLE}
+    </Text>
+
+    <Divider/>
+
+    <Image 
+        src="https://example.com/example.png" 
+        alt="Alt text"
+        width="500"
+        height="500"/>
+
+    <Divider/>
+
+    <Section>
+        <Column>
+            <Heading type="h2">This is another heading</Heading>
+            <Text>Some more text</Text>
+        </Column>
+        <Column>
+            <Heading type="h2">This is another heading 2</Heading>
+            <Text>Some more text</Text>
+        </Column>
+    <Section>
+</Container>
