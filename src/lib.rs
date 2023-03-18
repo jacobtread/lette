@@ -1,46 +1,27 @@
-use std::collections::HashMap;
+use sycamore::{prelude::*, render_to_string};
 
-pub struct LetteDocument<'a> {
-    /// Styling groups
-    style_groups: HashMap<&'a str, StyleGroup<'a>>,
+use crate::components::{AppContext, Button, Text};
+
+mod components;
+
+#[component]
+fn MyExampleEmail<G: Html>(cx: Scope) -> View<G> {
+    view! { cx,
+        Button {
+            "Text"
+        }
+        Text {}
+
+    }
 }
 
-pub struct Style<'a> {
-    key: &'a str,
-    value: &'a str,
-}
-
-pub struct StyleGroup<'a> {
-    styles: Vec<Style<'a>>,
-}
-
-pub enum ElementType {
-    Preview,
-    Container,
-    Column,
-    Section,
-    Button,
-    Heading,
-    Text,
-}
-
-pub struct Element<'a> {
-    ///
-    ty: ElementType,
-    /// Element arguments
-    args: Args<'a>,
-    /// Styles for the element
-    styles: StyleGroup<'a>,
-    /// Attributes on the element
-    attributes: Attributes<'a>,
-    /// Child elements
-    children: Vec<Box<Element<'a>>>,
-}
-
-pub struct Args<'a> {
-    values: Vec<&'a str>,
-}
-
-pub struct Attributes<'a> {
-    values: HashMap<&'a str, &'a str>,
+#[test]
+fn test() {
+    let str = render_to_string(|cx| {
+        let context = AppContext::default();
+        let signal = create_signal(cx, context);
+        provide_context_ref(cx, signal);
+        MyExampleEmail(cx)
+    });
+    println!("{}", str)
 }
